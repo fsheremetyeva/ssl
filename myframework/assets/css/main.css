@@ -4,8 +4,8 @@ body{
   font-family:sans-serif;
 }
 nav{
-  background:teal;
   padding: 0 15%;
+  margin-bottom:20px;
 }
 .container{
   width:80%;
@@ -41,13 +41,10 @@ header{
   color:#fff;
 }
 footer{
-  background:#222;
   margin: 0 auto;
   text-align: center;
   padding:1%;
   color:#fff;
-  position:absolute;
-  bottom:0;
   width:100%;
 
 }

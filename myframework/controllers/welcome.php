@@ -1,16 +1,16 @@
 <?
 
-
 class welcome extends AppController{
 
 
   public function __construct(){
 
     $menu = array(
-      "Home" => "/home",
-      "Blog" => "/blog",
-      "FAQ" => "/faq",
-      "Contact" => "/contact"
+      "Controller" => "?controller=components",
+      "Modal" => "?view=modal",
+      "Carousel" => "?view=carousel",
+      "Progess" => "?view=progress",
+      "Popover" => "?view=popover"
 
     );
 

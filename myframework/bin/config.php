@@ -3,7 +3,7 @@
 
 
 $config = array(
-'defaultController' => 'welcome',
+'defaultController' => (!isset($_GET['controller']) ? 'components' : 'welcome'),
 'dbname' => 'fruits',
 'dbpass' => 'root',
 'dbuser' =>'root',
