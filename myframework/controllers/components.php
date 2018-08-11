@@ -1,10 +1,12 @@
 <?
-
+/*
 class components extends AppController{
 
 
   public function __construct(){
 
+  }
+    public function index(){
     $menu = array(
       "Controller" => "?controller=components",
       "Modal" => "?view=modal",
@@ -40,4 +42,5 @@ class components extends AppController{
 
 
 }
+*/
 ?>

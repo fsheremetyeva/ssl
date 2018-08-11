@@ -48,6 +48,9 @@ footer{
   width:100%;
 
 }
+.success-message{
+  color:green; font-size:30px;text-align:center;
+}
 @media(max-width:600px){
   nav{
     padding: 0 5%;

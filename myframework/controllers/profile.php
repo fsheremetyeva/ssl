@@ -1,6 +1,6 @@
 <?
-
-class welcome extends AppController{
+/*
+class profile extends AppController{
 
   protected $menu;
 
@@ -16,7 +16,12 @@ class welcome extends AppController{
       "Login" => "/welcome/login"
     );
 
+    if(@$_SESSION["loggedin"] && @$_SESSION["loggedin"]==1){
 
+
+    }else{
+      header("Location:/welcome");
+    }
 
     //db con
     // global information
@@ -32,11 +37,13 @@ class welcome extends AppController{
 
     $this->getView("header", array("pagename"=>"welcome"));
     $this->getView("navigation", $this->menu);
-    $this->getView("welcome");
+
+    echo "This is a protected area";
     $this->getView("footer");
 
   }
-
+}
+/*
   public function popover(){
     $this->getView("header", array("pagename"=>"popover"));
     $this->getView("navigation", $this->menu);
@@ -75,51 +82,40 @@ class welcome extends AppController{
   }
 
   public function processAndReceive(){
-    //var_dump($_REQUEST);
-    $errors = array();
-     if(empty($_REQUEST["name"])){
-       $errors[] = "Name is not supplied";
-    }
-    if(empty($_REQUEST["email"])){
-      $errors[] = "You must supply an email address";
-    }
-    else if(!filter_var($_REQUEST["email"],FILTER_VALIDATE_EMAIL)){
-      $errors[] = "You must supply a valid email address";
-    }
-    if (!isset($_REQUEST["gender"])) {
-      $errors[] =  "You must select a gender";
-    }
-    if (empty($_REQUEST["ft"]) && empty($_REQUEST["pt"])) {
-      $errors[] = "You must select your job hours";
-    }
 
-    if(empty($_REQUEST["department"])){
-      $errors[] = "You must select a department";
-    }
+    $name = $email = $genter = $message = "";
 
-    if(empty($_REQUEST["message"])){
-      $errors[] = "You must supply your comments/message";
-    }
+    $department = array();
 
-    if(empty($errors))
-    {
-        echo "<span style=\"color: green;\">Thank you " . $_REQUEST['name'] . ' for your form submission. You entered:<br />';
-        foreach($_REQUEST as $key => $value)
-        {
-          echo '<strong>' . ucwords($key) . ':</strong> ' . $value . '.<br />';
-        }
-        echo "</span>";
+    if(empty($_POST["name"])){
+      echo "name is missing";
+    }else{
+      echo "<br>found name<br>";
+    }
+    if(empty($_POST["email"])){
+      echo "email is missing";
+    }else{
+      echo "<br>found email<br>";
+    }
+    if (!isset($_POST["gender"])) {
+        echo "You must select 1 option<br>";
     }
     else {
-      echo "<span style=\"color: red;\"><strong>Please take care of these errors and try again:</strong> <br />";
-      foreach($errors as $error)
-        echo $error . "<br />";
-      echo "</span>";
+        echo "Thanks for making a selection<br>";
     }
+    if(empty($POST["department"])){
+      echo "You must select 1 of the deparments";
+    }
+    else{
+      echo "Thank you for selecting a deparment";
+    }
+    var_dump($_POST);
 
-
-
-
+    if(!filter_var($_POST["email"],FILTER_VALIDATE_EMAIL)){
+      echo "email invalid";
+    }else{
+      echo "email valid";
+    }
   }
   public function contactRecv(){
     var_dump($_POST);
@@ -135,20 +131,16 @@ class welcome extends AppController{
       echo "invalid password";
     }
   }
-
   public function ajaxPars(){
+    var_dump($_REQUEST);
 
-    // var_dump($_REQUEST);
-if(!empty($_REQUEST["email"]) && !empty($_REQUEST["password"])){
     if($_REQUEST["email"] == "mike@aol.com" && $_REQUEST["password"] == "12345"){
-      echo "
-      <p style='color:green; font-size:20px;text-align:center;'>Welcome. You successfully logged in.</p>";
+      echo "welcome";
     }else{
-      echo "<p style='color:red; font-size:20px;text-align:center;'>You entered wrong email or password. Please try again</p>";
+      echo "You entered wrong email or password. Please try again";
     }
-}else{
-  echo "Don't leave input blank";
-}
+
   }
 }
+*/
 ?>

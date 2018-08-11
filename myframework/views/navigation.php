@@ -9,11 +9,14 @@
     <ul class="navbar-nav mr-auto">
 
       <?
-
         foreach($data as $key => $item){
-          echo " <li class='nav-item'>
-              <a class='nav-link' href='".$item."'>
-                ".$key."
+          if(strpos($_SERVER['REQUEST_URI'], $item) !== false)
+            echo " <li class='active nav-item'>";
+          else
+            echo " <li class='nav-item'>";
+
+          echo "    <a class='nav-link' href='".$item."'>";
+          echo "$key
               </a>
             </li> ";
         }
@@ -36,6 +39,19 @@
         </div>
       </li> -->
     </ul>
+
+    <?
+/*
+    if(@$_SESSION["loggedin"] && @$_SESSION["loggedin"]==1){?>
+        <form class="navbar-form navbar-right">
+          <a href="/profile">Profile</a>
+          <a  href="/auth/logout">Logout</a>
+        </form>
+      <?}else{?>
+
+        <?}
+*/
+        ?>
     <!--
     <form class="form-inline my-2 my-lg-0">
       <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">

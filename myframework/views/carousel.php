@@ -1,5 +1,5 @@
 
-<main role="main">
+
   <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
     <div class="carousel-inner" role="listbox">
       <div class="carousel-item active">
@@ -21,5 +21,3 @@
       <span class="sr-only">Next</span>
     </a>
   </div>
-
-</main>

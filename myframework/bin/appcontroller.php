@@ -12,19 +12,20 @@ class AppController{
         $this->urlPathParts = $urlPathParts;
 
 
-
+        // if http://127.0.0.1/welcome  if controller present
         if ($urlPathParts[0]) {
 
           include './controllers/' . $urlPathParts[0] . ".php";
 
             $appcon = new $urlPathParts[0]($this);
-
+            // if http://127.0.0.1/welcome/contact  // if a method follows a controller
             if (isset($urlPathParts[1])) {
 
                $appcon->{$urlPathParts[1]}();
 
             }else{
-
+              // http://127.0.0.1/welcome  if no parameter
+              //if there is a default method inside a controller (index)
            		$methodVariable = array($appcon, 'index');
 
               if(is_callable($methodVariable, false, $callable_name)){
