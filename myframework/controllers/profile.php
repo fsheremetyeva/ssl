@@ -30,10 +30,30 @@ class profile extends AppController{
 
     $this->getView("header", array("pagename"=>"profile"));
     $this->getView("navigation", $this->menu);
-
-    echo "This is a protected area";
+    $this->getView("profile", array("pagename"=>"profile"));
     $this->getView("footer");
 
+  }
+  public function update(){
+    echo dirname(__FILE__); var_dump($_FILES["img"]["name"]);
+    if($_FILES["img"]["name"] !=""){
+      //set allowed image types to be submitted
+      $imageFileType = pathinfo("assets/".$_FILES["img"]["name"],PATHINFO_EXTENSION);
+      if(file_exists("assets/".$_FILES["img"]["name"])){
+        echo "Sorry, file already exists";
+      }else{
+        if($imageFileType != "jpg" && $imageFileType != "png"){
+          echo "Sorry, this file type isn't allowed";
+        }else{
+          if(move_uploaded_file($_FILES["img"]["tmp_name"], "assets/".$_FILES["img"]["name"])){
+            echo "File uploaded";
+          }else{
+            echo "Error uploading";
+          }
+        }
+      }
+    }
+    header("Location:/profile?msg=File Uploaded");
   }
 
 }

@@ -15,6 +15,8 @@ class welcome extends AppController{
     //  "Login" => "/welcome/login"
     );
 
+
+
   }
 
   public function index(){
@@ -67,7 +69,7 @@ class welcome extends AppController{
 
     $this->getView("header", array("pagename"=>"welcome"));
     $this->getView("navigation", $this->menu);
-$this->getView("favorites");
+    $this->getView("favorites");
     echo "This is a protected area";
     $this->getView("footer");
 
@@ -76,8 +78,16 @@ $this->getView("favorites");
 
     $this->getView("header", array("pagename"=>"welcome"));
     $this->getView("navigation", $this->menu);
-$this->getView("settings");
+    $this->getView("settings");
     echo "This is a protected area";
+    $this->getView("footer");
+
+  }
+  public function sprofile(){
+
+    $this->getView("header", array("pagename"=>"welcome"));
+    $this->getView("navigation", $this->menu);
+    $this->getView("profile");
     $this->getView("footer");
 
   }
@@ -156,7 +166,7 @@ $this->getView("settings");
 
     // var_dump($_REQUEST);
 if(!empty($_REQUEST["email"]) && !empty($_REQUEST["password"])){
-    if($_REQUEST["email"] == "mike@aol.com" && $_REQUEST["password"] == "password"){
+    if($_REQUEST["email"] == "mike@aol.com" && $_REQUEST["password"] == "12345"){
       echo "
       <p style='color:green; font-size:20px;text-align:center;'>Welcome. You successfully logged in.</p>";
     }else{

@@ -30,7 +30,7 @@ class settings extends AppController{
 
     $this->getView("header", array("pagename"=>"settings"));
     $this->getView("navigation", $this->menu);
-    $this->getView("settings");
+    $this->getView("settings", array("pagename"=>"settings"));
     $this->getView("footer");
 
   }
