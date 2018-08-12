@@ -1,6 +1,6 @@
 <?
 
-class profile extends AppController{
+class settings extends AppController{
 
   protected $menu;
 
@@ -17,11 +17,11 @@ class profile extends AppController{
     $this->menu = array(
     //  "Modal" => "/welcome/modal",
       "Carousel" => "/welcome/carousel",
-      "Progress" => "/progress",
+      "Progess" => "/progress",
       "Popover" => "/welcome/popover",
       "Contact" => "/welcome/contact",
-      "Favorites" => "/welcome/favorites"
-    //  "Favorites" => "/welcome/favorites"
+      "Favorites" => "/welcome/favorites",
+      "Settings" => "/welcome/settings"
     );
 
   }
@@ -30,8 +30,7 @@ class profile extends AppController{
 
     $this->getView("header", array("pagename"=>"welcome"));
     $this->getView("navigation", $this->menu);
-
-    echo "This is a protected area";
+    $this->getView("settings");
     $this->getView("footer");
 
   }

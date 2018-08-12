@@ -42,6 +42,7 @@ $(document).ready(function(){
             "ft": $("#ft:checked").val(),
             "pt": $("#pt:checked").val(),
             "message": $("#message").val(),
+            "captcha": $("#captcha").val()
 
           },
           success: function(msg){

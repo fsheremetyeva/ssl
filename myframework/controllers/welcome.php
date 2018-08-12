@@ -7,25 +7,14 @@ class welcome extends AppController{
   public function __construct(){
 
     $this->menu = array(
-      "Controller" => "/welcome/components",
-      "Modal" => "/welcome/modal",
+    //  "Modal" => "/welcome/modal",
       "Carousel" => "/welcome/carousel",
-      "Progess" => "/welcome/progress",
+      "Progress" => "/progress",
       "Popover" => "/welcome/popover",
       "Contact" => "/welcome/contact",
-      "Login" => "/welcome/login"
+    //  "Login" => "/welcome/login"
     );
 
-
-
-    //db con
-    // global information
-
-
-  //  $this->getView("header", array("pagename"=>"welcome"));
-  //  $this->getView("navigation", $menu);
-  //  $this->getView("welcome");
-  //  $this->getView("footer");
   }
 
   public function index(){
@@ -64,7 +53,8 @@ class welcome extends AppController{
   public function contact(){
     $this->getView("header", array("pagename"=>"contact"));
     $this->getView("navigation", $this->menu);
-    $this->getView("contact");
+    $random = substr( md5(rand()), 0, 7);
+    $this->getView("contact",array("cap"=>$random));
     $this->getView("footer");
   }
   public function login(){
@@ -73,8 +63,32 @@ class welcome extends AppController{
     $this->getView("login");
     $this->getView("footer");
   }
+  public function favorites(){
 
+    $this->getView("header", array("pagename"=>"welcome"));
+    $this->getView("navigation", $this->menu);
+$this->getView("favorites");
+    echo "This is a protected area";
+    $this->getView("footer");
+
+  }
+  public function settings(){
+
+    $this->getView("header", array("pagename"=>"welcome"));
+    $this->getView("navigation", $this->menu);
+$this->getView("settings");
+    echo "This is a protected area";
+    $this->getView("footer");
+
+  }
   public function processAndReceive(){
+
+    if(@$_POST["captcha"] != @$_SESSION["captchaKey"]){
+
+      echo "Invalid Captcha";
+      echo "<br><a href='/welcome/contact'>Click here to go back</a>";
+
+    } else {
     //var_dump($_REQUEST);
     $errors = array();
      if(empty($_REQUEST["name"])){
@@ -85,6 +99,7 @@ class welcome extends AppController{
     }
     else if(!filter_var($_REQUEST["email"],FILTER_VALIDATE_EMAIL)){
       $errors[] = "You must supply a valid email address";
+      echo "<br><a href='/welcome/contact'>Click here to go back</a>";
     }
     if (!isset($_REQUEST["gender"])) {
       $errors[] =  "You must select a gender";
@@ -115,10 +130,11 @@ class welcome extends AppController{
       foreach($errors as $error)
         echo $error . "<br />";
       echo "</span>";
+      echo "<br><a href='/welcome/contact'>Click here to go back</a>";
     }
 
 
-
+}
 
   }
   public function contactRecv(){

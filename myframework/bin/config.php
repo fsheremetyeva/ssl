@@ -1,6 +1,6 @@
 <?php
 
-
+session_start();
 
 $config = array(
 //'defaultController' => (!isset($_GET['controller']) ? 'components' : 'welcome'),

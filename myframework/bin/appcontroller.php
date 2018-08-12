@@ -1,6 +1,6 @@
 <?php
 
-session_start();
+
 class AppController{
 
     public function __construct($urlPathParts,$config)
