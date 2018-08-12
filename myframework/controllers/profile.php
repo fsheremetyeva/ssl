@@ -28,7 +28,7 @@ class profile extends AppController{
 
   public function index(){
 
-    $this->getView("header", array("pagename"=>"welcome"));
+    $this->getView("header", array("pagename"=>"profile"));
     $this->getView("navigation", $this->menu);
 
     echo "This is a protected area";

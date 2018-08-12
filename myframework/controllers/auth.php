@@ -14,7 +14,7 @@ class auth extends AppController{
 
     if($_REQUEST["username"] && $_REQUEST["password"]){
 
-      if($_REQUEST["username"]== "mike@aol.com" && $_REQUEST["password"] == "12345"){
+      if($_REQUEST["username"]== "mike@aol.com" && $_REQUEST["password"] == "password"){
 
         $_SESSION["loggedin"] = 1;
 

@@ -156,7 +156,7 @@ $this->getView("settings");
 
     // var_dump($_REQUEST);
 if(!empty($_REQUEST["email"]) && !empty($_REQUEST["password"])){
-    if($_REQUEST["email"] == "mike@aol.com" && $_REQUEST["password"] == "12345"){
+    if($_REQUEST["email"] == "mike@aol.com" && $_REQUEST["password"] == "password"){
       echo "
       <p style='color:green; font-size:20px;text-align:center;'>Welcome. You successfully logged in.</p>";
     }else{
