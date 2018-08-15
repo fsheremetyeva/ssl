@@ -9,7 +9,9 @@
 
       <div class="collapse navbar-collapse" id="navbarsExampleDefault">
         <ul class="navbar-nav mr-auto">
-
+          <li class="nav-item">
+            <a class="nav-link" href="/about">About</a>
+          </li>
           <?
             foreach($data as $key => $item){
               if(strpos($_SERVER['REQUEST_URI'], $item) !== false)

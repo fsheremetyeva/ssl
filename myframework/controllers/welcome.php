@@ -7,11 +7,10 @@ class welcome extends AppController{
   public function __construct(){
 
     $this->menu = array(
-    //  "Modal" => "/welcome/modal",
       "Carousel" => "/welcome/carousel",
-      "Progress" => "/progress",
+      "Progess" => "/progress",
       "Popover" => "/welcome/popover",
-      "Contact" => "/welcome/contact",
+      "Contact" => "/welcome/contact"
     //  "Login" => "/welcome/login"
     );
 

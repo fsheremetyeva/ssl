@@ -8,10 +8,10 @@ class progress extends AppController{
 
     $this->menu = array(
     //  "Modal" => "/welcome/modal",
-      "Carousel" => "/welcome/carousel",
-      "Progress" => "/progress",
-      "Popover" => "/welcome/popover",
-      "Contact" => "/welcome/contact",
+    "Carousel" => "/welcome/carousel",
+    "Progess" => "/progress",
+    "Popover" => "/welcome/popover",
+    "Contact" => "/welcome/contact"
     //  "Login" => "/welcome/login"
     );
 

@@ -4,14 +4,32 @@ class auth extends AppController{
 
   protected $menu;
 
-  public function __construct(){
-
+  public function __construct($parent){
+    $this->parent = $parent;
 
 
   }
 
   public function login(){
-    
+    if($_REQUEST["username"] && $_REQUEST["password"]){
+    $data = $this->parent->getModel("users")->select(
+      "SELECT * FROM users WHERE email = :email AND password = :password",
+      array(':email' => $_REQUEST['username'], ':password' => sha1($_REQUEST['password']))
+    );
+    if($data){
+      $_SESSION["loggedin"] = 1;
+      header("Location:/welcome?msg=Success");
+    }else{
+    header("Location:/welcome?msg=Bad Login");
+    }
+  }else{
+    header("Location:/welcome?msg=Bad Login");
+  }
+
+    }
+
+
+    /*
     if($_REQUEST["username"] == null || $_REQUEST["password"] == null)
       {
         header("Location:/welcome?msg=Fill out the fields");
@@ -33,7 +51,8 @@ class auth extends AppController{
     }
     header("Location:/welcome?msg=Bad Login");
     return;
-  }
+    */
+
 
 /*
     if($_REQUEST["username"] && $_REQUEST["password"]){

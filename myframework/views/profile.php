@@ -20,9 +20,12 @@
 			</form><br><br>
 
 			<div class="header">
+
+				<h1>Portfolio</h1>
+				<!--
 				<p>Username: <?php echo $_SESSION["profiledata"][0]; ?><br>
 				Password: <?php echo $_SESSION["profiledata"][1]; ?><br>
-				<?php echo $_SESSION["profiledata"][2]; ?><br>
+				<?php echo $_SESSION["profiledata"][2]; ?><br> -->
 
 			</div>
 		</div>
