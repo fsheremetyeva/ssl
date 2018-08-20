@@ -12,6 +12,12 @@
           <li class="nav-item">
             <a class="nav-link" href="/about">About</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/api/showApi">Books</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/apiTranslate/showApiTranslate">Translate</a>
+          </li>
           <?
             foreach($data as $key => $item){
               if(strpos($_SERVER['REQUEST_URI'], $item) !== false)
